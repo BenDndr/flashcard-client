@@ -21,7 +21,7 @@ export default function Folder(props) {
     .catch(err => console.log(err))
 
     fetchPiles()
-  })
+  }, [])
 
   const submitForm = (e) => {
     e.preventDefault()
@@ -33,18 +33,28 @@ export default function Folder(props) {
     .then(res => {
       console.log(res)
       fetchPiles()
+      setPileName("")
     })
     .catch(err => console.log(err))
   }
 
+  const deleteItem = (id) => {
+    axios.delete(`http://localhost:8080/pile/${id}`)
+    .then(res => {
+      console.log(res)
+      fetchPiles()
+    })
+    .catch(res => console.log(res))
+  }
+
   return (
-    <main>
+    <div>
       <h1>Folder {folder.name}</h1>
       <section>
         <h2>Create a new Pile</h2>
         <form method="post" onSubmit={submitForm}>
           <label>
-            Name : <input name="name" placeholder="name" onChange={e => setPileName(e.target.value)}/>
+            Name : <input name="name" placeholder="name" value={pileName} onChange={e => setPileName(e.target.value)}/>
           </label>
           <button type="submit">Submit form</button>
         </form>
@@ -54,13 +64,14 @@ export default function Folder(props) {
           piles.map(pile => {
             return (
               <div key={pile.id}>
-                <Link href={{pathname: `/folders/${folderId}/pile/${pile.id}`}}><p>{pile.name}</p></Link>
+                <Link href={{pathname: `/folders/${folderId}/pile/${pile.id}`}}>{pile.name}</Link>
+                <button onClick={() => deleteItem(pile.id)}>Delete</button>
               </div>
             )
           })
         }
       </section>
       <Link href="/folders">back</Link>
-    </main>
+    </div>
   )
 }

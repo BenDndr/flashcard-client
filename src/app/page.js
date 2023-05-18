@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main>
+    <div>
       <h1>FlashCard</h1>
       <ul>
         <li>
@@ -12,6 +12,6 @@ export default function Home() {
           <Link href="/folders">Folders</Link>
         </li>
       </ul>
-    </main>
+    </div>
   )
 }

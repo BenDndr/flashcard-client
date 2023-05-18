@@ -13,3 +13,8 @@ body {
 #main-container {
   padding: 2rem
 }
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
