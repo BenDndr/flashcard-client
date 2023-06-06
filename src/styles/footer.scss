@@ -1,0 +1,13 @@
+
+#footer {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  #footer {
+    background-color: $blue;
+    display: grid;
+    place-items: center;
+    height: 4rem;
+  }
+}

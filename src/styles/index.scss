@@ -1,0 +1,22 @@
+// Colors variables
+$white: #f6f4f4;
+$black: #0e0609;
+$blue: #9ba2ff;
+$blue-light: #C2C6FF;
+$blue-dark: #707AFF;
+$pink: #e0b8d7;
+$pink-light: #ecd4e7;
+$pink-dark: #d39cc7;
+$orange: #ffd285 ;
+$orange-light: #ffe1ad ;
+$orange-dark: #ffa50a ;
+
+
+@import "globals.scss";
+@import "navbar.scss";
+@import "button.scss";
+@import "home.scss";
+@import "folder.scss";
+@import "footer.scss";
+@import "pile.scss";
+@import "flashcard.scss";

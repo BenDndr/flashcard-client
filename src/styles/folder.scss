@@ -1,0 +1,72 @@
+.folder-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  grid-auto-rows: minmax(50px, auto);
+}
+
+.folder-card {
+  cursor: pointer;
+  background-color: $orange;
+  padding: 2rem;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s ease-in-out;
+  overflow: hidden;
+  p {
+    transition: all .6s ease-out;
+  }
+  &:hover {
+    box-shadow: 3px -3px 0px 1px $black;
+    transform: translate(-3px, 3px);
+    word-wrap: break-word;
+    background-color: $orange-dark;
+    p {
+      transform: scale(1.5);
+      font-weight: bold;
+    }
+    .filligrane {
+      transform: scale(2);
+    }
+  }
+  form {
+    z-index: 2;
+  }
+}
+
+.button-box {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media (min-width: 600px) {
+  .folder-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+  }
+}
+
+@media (min-width: 1000px) {
+  .folder-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+  }
+}
+
+.filligrane {
+  position: absolute;
+  color: $white;
+  opacity: .2;
+  font-size: 5rem;
+  transition: all .4s ease-out;
+}
+
+.form-button-box {
+  display: flex;
+  justify-content: space-between;
+}

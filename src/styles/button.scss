@@ -1,0 +1,33 @@
+.button {
+  border: none;
+  color: $black;
+  padding: .5rem 1rem;
+  font-weight: bold;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 3px -3px 0px 1px $black;
+    transform: translate(-3px, 3px);
+  }
+}
+
+.pink-button {
+  background-color: $pink;
+  &:hover {
+     background-color: $pink-dark;
+  }
+}
+
+.yellow-button {
+  background-color: $orange;
+  &:hover {
+     background-color: $orange-dark;
+  }
+}
+
+.blue-button {
+  background-color: $blue;
+  &:hover {
+     background-color: $blue-dark;
+  }
+}

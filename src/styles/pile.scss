@@ -1,0 +1,23 @@
+.pile-card {
+  background-color: $pink;
+  padding: 1rem;
+  transform: translateX(-100%);
+  animation: slideRight 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all .3s ease-in-out;
+  .buttons-div {
+    display: flex;
+    transition: all .3s ease-in-out;
+  }
+  button {
+    margin: .4rem;
+  }
+}
+
+@keyframes slideRight {
+  to {
+    transform: translateX(0);
+  }
+}
