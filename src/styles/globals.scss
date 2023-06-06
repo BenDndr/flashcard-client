@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+#main-container {
+  background-color: $white;
+  min-height: 100vh;
+}
+
+.content-layout {
+   padding: 1rem 1rem 5rem 1rem;
+}
+
+p, h1, h2, h3, h4, a, label {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media (min-width: 600px) {
+  #main-container {
+    min-height: calc(100vh - 8rem);
+
+  }
+
+  .content-layout {
+    padding: 1rem;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-bottom: .5rem;
+  }
+  input {
+    background-color: $white;
+    padding: .5rem .2rem;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.title-box {
+  display: grid;
+  place-items: center;
+  height: 8rem;
+  width: 100%;
+}
+
+.error-box {
+  background-color: $pink-light;
+  width: 80%;
+  margin: auto;
+  padding: 2rem;
+  color: $pink-dark;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered-content {
+  width: 80%;
+  margin: auto;
+
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.form-blue {
+  background-color: $blue;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+  animation: slideDown 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  input {
+    width: 100%;
+  }
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.mask {
+  margin-top: 1rem;
+  overflow: hidden;
+}
