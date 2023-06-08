@@ -2,7 +2,7 @@
 
 This is the frontend part of my project Flashcard for 3wa Academy.
 This app need the backend to work, you can find the repo here :
-[Flashcard backe,d](https://github.com/BenDndr/flashcard-backend)
+[Flashcard backend](https://github.com/BenDndr/flashcard-backend)
 
 ## Initialize
 
