@@ -1,6 +1,8 @@
 "use client"
 import {useState} from 'react'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faLayerGroup} from '@fortawesome/free-solid-svg-icons'
 
 const Pile = ({pile, editFunction, deleteFunction}) => {
 
@@ -14,9 +16,9 @@ const Pile = ({pile, editFunction, deleteFunction}) => {
 
   return (
     <article className="mask">
-      <div className="pile-card">
+      <div className="pile-card mb-1">
         {edit ?
-        <form method="post" onSubmit={editPile}>
+        <form method="post" onSubmit={editPile} className="pile-form">
         <label>
           <input name="name" placeholder={pile.name} value={newPileName} onChange={e => setNewPileName(e.target.value)}/>
           </label>
@@ -24,7 +26,12 @@ const Pile = ({pile, editFunction, deleteFunction}) => {
             <button className='button blue-button' onClick={() => setEdit(false)}>Cancel</button>
         </form>
           :
-          <p>{pile.name}</p>
+          <div className="pile-title">
+            <div className="explacation-icon desktop-only">
+              <FontAwesomeIcon icon={faLayerGroup}/>
+            </div>
+            <p>{pile.name}</p>
+          </div>
         }
         {
           !edit &&
@@ -34,7 +41,6 @@ const Pile = ({pile, editFunction, deleteFunction}) => {
             <button className="button yellow-button" onClick={() => setEdit(true)}>Edit</button>
           </div>
         }
-
       </div>
     </article>
   )

@@ -1,13 +1,136 @@
 #header {
-  background-color: $blue-dark;
+  background-color: $black;
+  background-size: cover;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 40vh;
+  transition: background-size .5s ease-in-out;
+  background-position: center;
   h1, p {
     color: $white;
     margin-bottom: 1rem;
+    z-index: 3;
+  }
+  .button {
+    z-index: 3;
+    position: relative;
+  }
+}
+
+#header::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  background-color: $black;
+  width: 100vw;
+  opacity: .5;
+  height: 40vh;
+  display: inline-block;
+}
+
+.home-container {
+  margin: 1rem;
+  padding-bottom: 3rem;
+}
+
+.text-promise {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1rem;
+  transform: translateY(-100%);
+  transition: all .3s ease-in-out;
+  animation: slideDown 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  margin-bottom: 2rem;
+  h2 {
+    margin-bottom: 1rem;
+  }
+}
+
+.explanation-bloc {
+  display: flex;
+  background-color: $orange-light;
+  align-items: center;
+  margin-bottom: 1rem;
+  min-height: 5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.eb-1 {
+  margin-right: 3rem;
+  transform: translateX(-120%);
+  transition: all .3s ease-in-out;
+  animation: slideRight 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+.eb-2 {
+  margin-right: 2rem;
+  margin-left: 1rem;
+  transform: translateX(-120%);
+  transition: all .6s ease-in-out;
+  animation: slideRight 1s .1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+.eb-3 {
+  margin-right: 1rem;
+  margin-left: 2rem;
+  transform: translateX(-120%);
+  transition: all .3s ease-in-out;
+  animation: slideRight 1s .2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+.eb-4 {
+  margin-left: 3rem;
+  transform: translateX(-120%);
+  transition: all .3s ease-in-out;
+  animation: slideRight 1s .3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+.explacation-icon {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.call-to-action {
+  background-color: $blue-light;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 3rem auto;
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 650px) {
+  #header {
+    background-size: 100%;
+    &:hover {
+      background-size: 110%;
+    }
+  }
+
+  .home-container {
+    width: 80vw;
+    margin: auto;
+  }
+
+  .call-to-action {
+    width: 60%
   }
 }

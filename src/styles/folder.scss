@@ -3,6 +3,10 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
   grid-auto-rows: minmax(50px, auto);
+  form {
+    height: 100%;
+    padding: 1rem;
+  }
 }
 
 .folder-card {
@@ -19,8 +23,6 @@
     transition: all .6s ease-out;
   }
   &:hover {
-    box-shadow: 3px -3px 0px 1px $black;
-    transform: translate(-3px, 3px);
     word-wrap: break-word;
     background-color: $orange-dark;
     p {
@@ -51,7 +53,7 @@
   }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
   .folder-grid {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(50px, auto);

@@ -1,36 +1,26 @@
 'use client'
 import Link from 'next/link'
-import Image from 'next/image'
-import axios from 'axios'
-import { useRouter } from 'next/navigation';
-import { logout } from "../store/authSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faSquareCaretDown} from '@fortawesome/free-solid-svg-icons'
+import Image from "next/image";
+import Logo from "../app/images/logo-nb2.png"
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
 
   const store = useSelector(state => state);
   console.log("store", store)
   const {auth} = store
-  const router = useRouter();
-  const dispatch = useDispatch();
-
-  const handleLogout = () => {
-    axios.delete('http://localhost:8080/logout', { withCredentials: true })
-    .then(res => {
-      console.log("Logout Res", res)
-      dispatch(logout())
-      router.push('/')
-    })
-    .catch(err => console.log("Logout Err", err))
-  }
-
 
   return (
     <nav id="desktop-navbar">
       <div>
-        <Link href="/"><FontAwesomeIcon icon={faSquareCaretDown} /></Link>
+        <Link href="/">
+          <Image
+            src={Logo.src}
+            width={50}
+            height={50}
+            alt="Logo Flashcard"
+          />
+        </Link>
       </div>
       <div className="nav-links">
       <Link href="/">

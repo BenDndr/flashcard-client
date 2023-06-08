@@ -6,6 +6,10 @@ import Folder from '@/components/folder'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlus} from '@fortawesome/free-solid-svg-icons'
 
+export const Metadata = {
+  title: 'Folders',
+};
+
 export default function Myfolders() {
   const [folders, setFolders] = useState([])
   const [folderName, setFolderName] = useState("")
@@ -83,7 +87,10 @@ export default function Myfolders() {
           </Link>
       </section>
       :
-      <>
+      <div>
+        <section className="desc-box">
+          <p>To organise your work, create your folders by clicking Add new and chosing a name for your folder. You may create as many folder as you wish. Once your folder is set, click on its name to enter inside the folder</p>
+        </section>
         <section className="folder-grid">
           {
             folders.map((folder, index) => {
@@ -96,8 +103,7 @@ export default function Myfolders() {
             <FontAwesomeIcon icon={faPlus} className="filligrane"/>
             <p>Add new</p>
           </div>}
-        </section>
-        {
+          {
           createNew &&
         <section className='mask'>
           <form className="form-blue" method="post" onSubmit={createFolder}>
@@ -105,12 +111,14 @@ export default function Myfolders() {
               New folder : <input name="name" placeholder="chose a name" value={folderName} onChange={e => setFolderName(e.target.value)}/>
             </label>
             <div className="form-button-box">
-              <button type="submit" className="button yellow-button">Create a folder</button>
+              <button type="submit" className="button yellow-button">Create</button>
               <button onClick={() => setCreateNew(false)} className="button pink-button">Cancel</button>
             </div>
           </form>
         </section>}
-        </>
+        </section>
+
+        </div>
       }
     </div>
   )
