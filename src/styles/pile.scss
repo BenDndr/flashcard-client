@@ -16,6 +16,15 @@
   }
 }
 
+.pile-form {
+  margin: auto;
+}
+
+.pile-title {
+  display: flex;
+  align-items: center;
+}
+
 @keyframes slideRight {
   to {
     transform: translateX(0);

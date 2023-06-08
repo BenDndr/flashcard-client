@@ -2,90 +2,205 @@
   display: flex;
 }
 
-.drawer-desktop {
-  display: none;
-}
-
 .drawer-container {
   position: absolute;
   display: flex;
 }
 
-.drawer-mobile {
-  background-color: $blue-dark;
-  min-height: calc(100vh);
+.drawer {
+  height: 100vh;
   padding: 1rem;
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   padding-top: 30vh;
   width: 60vw;
+  z-index: 3;
   input {
     width: 100%;
   }
 }
 
-.left-side {
-  width: 100%;
+.drawer-blue {
+  background-color: $blue-dark;
 }
 
-.aside-button {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+.drawer-pink {
+  background-color: $pink-dark;
 }
 
 .clickabe-opacity {
   background-color: $black;
   opacity: .3;
-  min-height: calc(100vh);
+  height: 100vh;
   width: 40vw;
-  position: absolute;
+  position: fixed;
   left: 60vw;
+  z-index: 3;
 }
 
-@media (min-width: 600px) {
-  .drawer-mobile {
-    display: none;
-  }
+.button-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  top: calc(100vh - 8rem);
+  position: fixed;
+  background-color: $white;
+  border-top: 1px solid rgba(40 ,40, 40, .2);
+  z-index: 2;
+}
 
-  .aside-button {
-    display: none;
-  }
+.flashcards-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1rem;
+  grid-auto-rows: minmax(100px, auto);
+}
 
-  .drawer-desktop {
-    background-color: $blue-dark;
-    min-height: calc(100vh - 8rem);
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    padding-top: 30vh;
-    input {
-      width: 100%;
-    }
-  }
-
-  .form-sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 10px;
-  }
+.centered-message {
+  grid-column: 2;
+  text-align: center;
 }
 
 .flashcard {
-  width: 60%;
-  aspect-ratio: 1;
-  margin: auto;
-  display: grid;
-  place-items: center;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
   box-shadow: 2px 2px 10px rgba(40 ,40, 40, .4);
   cursor: pointer;
+  padding: 1rem;
+  overflow-wrap: break-word;
+  max-width: calc(400px - 1rem);
+  .header {
+    font-weight: bold;
+  }
 }
 
 .flashcard-front {
+  background-color: $white;
+  img {
+    opacity: .05;
+    position: absolute;
+  }
 }
 
 .flashcard-back {
   background-color: $pink-light;
+  img {
+    opacity: .04;
+    position: absolute;
+  }
+}
+
+.mw {
+  max-width: calc(400px - 1rem);
+}
+
+.play-field {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(100%);
+  animation: slideUp 1s .3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  .flashcard {
+    width: 350px;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.play-counter {
+  margin-bottom: 2rem;
+}
+
+.play-score {
+  margin-top: 1rem;
+  background-color: $orange-dark;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.play-button {
+  margin: 2rem  0;
+  padding: 1rem;
+  width: 350px;
+  display: flex;
+  justify-content: space-around;
+  .round-button {
+    border: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    &:hover {
+      box-shadow: 3px -3px 0px 1px $black;
+      transform: translate(-3px, 3px);
+    }
+  }
+  .green {
+    background-color: rgb(118, 201, 125);
+    &:hover {
+      background-color: rgb(64, 185, 74)
+    }
+  }
+  .red {
+    background-color: rgb(190, 93, 98);
+    &:hover {
+      background-color: rgb(190, 49, 56);
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .button-bar {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .drawer {
+    width: 40vw;
+    top: -4rem;
+    height: calc(100vh + 4rem);
+  }
+
+  .clickabe-opacity {
+    width: 60vw;
+    left: 40vw;
+    top: -4rem;
+    height: calc(100vh + 4rem);
+  }
+
+  .flashcards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .button-bar {
+    position: relative;
+    top: 0;
+    border: none
+  }
+}
+
+@media (min-width: 1200px) {
+  .flashcards-grid {
+    grid-template-columns: repeat(3, 1fr);
+
+  }
+}
+
+@media (min-width: 1600px) {
+  .flashcards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

@@ -76,6 +76,9 @@ export default function Folder(props) {
       <div className="title-box">
         <h2>Folder - {folder.name}</h2>
       </div>
+      <section className="desc-box">
+          <p>On this page, you may create your pile of Flashcard. You can play with one pile at a time, so make sure all the card you want to play with are grouped inside the same pile.</p>
+        </section>
       <section>
         {
           piles.map((pile, index) => {
@@ -97,8 +100,9 @@ export default function Folder(props) {
         </form>
       </section>
       }
-
-      <Link href="/folders"><button className="button yellow-button">back to folders</button></Link>
+      <div className="button-box">
+        <Link href="/folders"><button className="button yellow-button">back to folders</button></Link>
+      </div>
     </div>
   )
 }
